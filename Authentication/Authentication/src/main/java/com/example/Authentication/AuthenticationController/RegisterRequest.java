@@ -1,21 +1,23 @@
 package com.example.Authentication.AuthenticationController;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import com.example.Authentication.models.UserRole;
+import lombok.*;
 
 @Data
+@Builder
 @Getter
 @Setter
 @AllArgsConstructor
 public class RegisterRequest {
 
     private String firstname;
-
     private String lastname;
     private String email;
     private String password;
+    private UserRole role;
 
 
+    public RegisterRequest() {
+
+    }
 }

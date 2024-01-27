@@ -1,7 +1,9 @@
 package com.example.Authentication.Api;
 
 import com.example.Authentication.Service.UserService;
+import com.example.Authentication.Service.UserServiceimp;
 import com.example.Authentication.models.User;
+import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -10,13 +12,10 @@ import java.net.URI;
 import java.util.List;
 
 @RequestMapping("/api")
+@AllArgsConstructor
 
 public class controller {
-    private final UserService userService;
-
-        public controller(UserService userService) {
-            this.userService = userService;
-        }
+    private final UserServiceimp userService;
 
         @GetMapping("/users")
         public ResponseEntity<List<User>> getusers()

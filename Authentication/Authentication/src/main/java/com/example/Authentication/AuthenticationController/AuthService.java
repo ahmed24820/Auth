@@ -28,7 +28,7 @@ public class AuthService {
         user.setEmail(registerRequest.getEmail());
         user.setPassword(registerRequest.getLastname());
         user.setPassword(bCryptPasswordEncoder.encode(registerRequest.getPassword()));
-        user.setRole(UserRole.valueOf("User"));
+        user.setRole(registerRequest.getRole());
         userRepo.save(user);
 
         var jwttoken=jwTservice.GenerateToken(user);
@@ -48,6 +48,7 @@ public class AuthService {
         return AuthenticationResponse.builder()
                 .token(jwttoken)
                 .build();
+
     }
 
 }
